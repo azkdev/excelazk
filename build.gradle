@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        kotlin_version = '1.2.21'
+        apache_poi_version = '3.17'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+group 'com.azkdev'
+version '1.0'
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.apache.poi:poi:$apache_poi_version"
+    compile "org.apache.poi:poi-ooxml:$apache_poi_version"
+    compile "org.apache.poi:poi-ooxml-schemas:$apache_poi_version"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+mainClassName = "com.azkdev.excelazk.ExcelazkKt"
